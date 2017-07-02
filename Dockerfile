@@ -5,7 +5,7 @@ LABEL maintainer "Archomeda (https://github.com/Archomeda/cookie-omega-discord-b
 RUN mkdir /bot
 WORKDIR /bot
 COPY . /bot
-RUN yarn install
+RUN yarn install --ignore-engines
 
 VOLUME /bot/config
 CMD node server.js
