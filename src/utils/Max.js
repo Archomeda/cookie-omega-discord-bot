@@ -32,7 +32,7 @@ function maxAllIndex(items, strict = false) {
     }
     if (Array.isArray(items)) {
         for (let i = 0; i < items.length; i++) {
-            if (items[i] > max) {
+            if (!max || items[i] > max) {
                 max = items[i];
                 index = i;
             } else if (strict && items[i] === max) {
@@ -41,21 +41,21 @@ function maxAllIndex(items, strict = false) {
         }
     } else if (items instanceof Map) {
         for (const [key, item] of items) {
-            if (item > max) {
+            if (!max || item > max) {
                 max = item;
                 index = key;
             } else if (strict && item === max) {
-                index = -1; // Strict doesn't allow multiple maximum values, reset index
+                index = undefined; // Strict doesn't allow multiple maximum values, reset index
             }
         }
     } else if (typeof items === 'object') {
         for (const key in items) {
             if (items.hasOwnProperty(key)) {
-                if (items[key] > max) {
+                if (!max || items[key] > max) {
                     max = items[key];
                     index = key;
                 } else if (strict && items[key] === max) {
-                    index = -1; // Strict doesn't allow multiple maximum values, reset index
+                    index = undefined; // Strict doesn't allow multiple maximum values, reset index
                 }
             }
         }

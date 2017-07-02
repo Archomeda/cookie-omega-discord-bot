@@ -25,6 +25,7 @@ async function getAccountProfile(battleTag, platform) {
 function getActiveRegion(databaseStats, liveStats) {
     let activeRegion;
     if (databaseStats) {
+        activeRegion = databaseStats.activeRegion;
         for (const region of ['eu', 'us', 'kr']) {
             activeRegion = deepEqual(databaseStats[region], liveStats.get(region)) ? activeRegion : region;
         }
