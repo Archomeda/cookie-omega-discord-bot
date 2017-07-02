@@ -33,6 +33,10 @@ modules:
     register:
       enabled: true
 
+    # !rank - Competitive rank information
+    rank:
+      enabled: true
+
     # Checks for competitive rank changes periodically
     competitive-rank-checker:
       enabled: true

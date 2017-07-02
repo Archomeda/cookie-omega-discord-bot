@@ -5,7 +5,6 @@ const overwatch = require('overwatch-js');
 const AutoRemoveMessage = require('../../../../bot/middleware/AutoRemoveMessage');
 
 const DiscordCommand = require('../../../../bot/modules/DiscordCommand');
-const DiscordCommandError = require('../../../../bot/modules/DiscordCommandError');
 const DiscordCommandParameter = require('../../../../bot/modules/DiscordCommandParameter');
 
 const models = require('../../../models');

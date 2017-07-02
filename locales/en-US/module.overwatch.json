@@ -14,6 +14,17 @@
     "response-no-account-found": "No accounts have been found with the given information. Please check if your account name and platform are correct and try again.",
     "response-registered": "Your account has been linked."
   },
+  "rank": {
+    "_meta": {
+      "name": "Overwatch rank",
+      "short-description": "Shows your Overwatch competitive rank",
+      "long-description": "Shows your Overwatch competitive rank. It might not be up-to-date immediately."
+    },
+    "response-error": "An error has occured: {{error}}",
+    "response-no-account": "You have not linked your account yet.",
+    "response-not-available": "Your Overwatch rank information is not yet available.",
+    "response": "Your Overwatch rating on account {{account_name}} is {{rank}} ({{ranking}})."
+  },
   "competitive-rank-checker": {
     "new-rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}**.",
     "new-rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}**.",
