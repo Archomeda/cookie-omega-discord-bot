@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "name": "Overwatch"
+  },
+  "register": {
+    "_meta": {
+      "name": "Battle.Net accountlinking",
+      "short-description": "Linkt jouw Battle.Net account",
+      "long-description": "Linkt jouw Battle.Net account.",
+      "param-account-name": "Jouw Battle.Net accountnaam",
+      "param-platform": "Jouw Battle.Net platform-id (pc, ps4 or xbox), valt standaard terug op pc als het niet gegeven is"
+    },
+    "response-error": "Er is een fout opgetreden: {{error}}.",
+    "response-no-account-found": "Er zijn geen accounts gevonden met de gegeven informatie. Controleer of jouw accountnaam en platform correct zijn en probeer opnieuw.",
+    "response-registered": "Jouw account is gelinkt."
+  },
+  "competitive-rank-checker": {
+    "new-rank-decrease": "{{user}}'s rang is *gezakt* met {{difference}} van {{oldRank}} naar **{{newRank}}**.",
+    "new-rank-increase": "{{user}}'s rang is *gestegen* met {{difference}} van {{oldRank}} naar **{{newRank}}**.",
+    "new-ranking": "{{user}}'s rangtitel is veranderd van {{oldRanking}} naar **{{newRanking}}**."
+  }
+}

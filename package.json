@@ -1,0 +1,64 @@
+{
+  "name": "cookie-omega-discord-bot",
+  "version": "0.1.0",
+  "description": "A bot that's powering Cookie Omega on Discord.",
+  "repository": "Archomeda/cookie-omega-discord-bot",
+  "author": "Archomeda",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "xo",
+    "test": "echo \"Tests are currently not maintained\"",
+    "cover": "echo \"Coverage is currently not maintained\""
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "discord.js": "^11.1.0",
+    "filesize": "^3.5.10",
+    "i18next": "^8.4.2",
+    "i18next-node-fs-backend": "^1.0.0",
+    "js-yaml": "^3.8.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^4.11.0",
+    "mongoose-sequence": "^3.2.0",
+    "node-cache": "^4.1.1",
+    "object-path": "^0.11.4",
+    "overwatch-js": "^1.5.2",
+    "random-js": "^1.0.8",
+    "redis": "^2.7.1",
+    "sugar-date": "^2.0.4"
+  },
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "ignores": [
+      "test/**/*"
+    ],
+    "space": 4,
+    "rules": {
+      "camelcase": "warn",
+      "linebreak-style": "off",
+      "no-div-regex": "off",
+      "no-else-return": "warn",
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 2
+        }
+      ],
+      "no-negated-condition": "off",
+      "no-prototype-builtins": "off",
+      "no-unused-vars": "warn",
+      "no-use-extend-native/no-use-extend-native": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "unicorn/filename-case": "off"
+    }
+  }
+}
