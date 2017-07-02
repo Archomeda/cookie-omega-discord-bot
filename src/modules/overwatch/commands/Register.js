@@ -21,7 +21,7 @@ class CommandRegister extends DiscordCommand {
     initializeParameters() {
         return [
             new DiscordCommandParameter('account-name'),
-            new DiscordCommandParameter('platform', { optional : true })
+            new DiscordCommandParameter('platform', { optional: true })
         ];
     }
 

@@ -30,7 +30,7 @@ class HookCompetitiveRank extends DiscordHook {
     async _checkStats(member, account) {
         let [databaseStats, liveStats] = await Promise.all([
             models.OverwatchStats.findOne({ accountName: account.accountName, platform: account.platform }),
-            owApi.getAccountProfile(account.accountName, account.platform),
+            owApi.getAccountProfile(account.accountName, account.platform)
         ]);
         if (!databaseStats) {
             databaseStats = new models.OverwatchStats({ accountName: account.accountName, platform: account.platform });
@@ -67,8 +67,8 @@ class HookCompetitiveRank extends DiscordHook {
             }
 
             const timeout = active > 0 ?
-                    checkIntervals.active + Math.random() * checkIntervals.activeRandom :
-                    checkIntervals.inactive + Math.random() * checkIntervals.inactiveRandom;
+                    checkIntervals.active + (Math.random() * checkIntervals.activeRandom) :
+                    checkIntervals.inactive + (Math.random() * checkIntervals.inactiveRandom);
 
             this._timers.set(member.id, setTimeout(async (member, active, account) => {
                 this._timers.delete(member.id);

@@ -13,6 +13,7 @@ async function getAccountProfile(battleTag, platform) {
         if (s.length > 3 && s[2] === platform) {
             return s[3];
         }
+        return undefined;
     }).filter(r => r);
 
     return new Map(await Promise.all(regions.map(async r => {
@@ -22,18 +23,18 @@ async function getAccountProfile(battleTag, platform) {
 }
 
 function getActiveRegion(databaseStats, liveStats) {
-    let activeRegion = undefined;
+    let activeRegion;
     if (databaseStats) {
         for (const region of ['eu', 'us', 'kr']) {
             activeRegion = deepEqual(databaseStats[region], liveStats.get(region)) ? activeRegion : region;
         }
     }
     if (!activeRegion) {
-        const getLevel = (data, region) => data.has(region) ? data.get(region).tier * 100 + data.get(region).level : undefined;
+        const getLevel = (data, region) => data.has(region) ? (data.get(region).tier * 100) + data.get(region).level : undefined;
         const levels = {
             eu: getLevel(liveStats, 'eu'),
             us: getLevel(liveStats, 'us'),
-            kr: getLevel(liveStats, 'kr'),
+            kr: getLevel(liveStats, 'kr')
         };
         activeRegion = maxAllIndex(levels);
     }

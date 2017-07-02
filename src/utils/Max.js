@@ -24,7 +24,7 @@ function maxAll(items, strict = false) {
  * @returns {number|String} The index or key of the maximum value, or if not found -1 in case of Arrays and undefined otherwise.
  */
 function maxAllIndex(items, strict = false) {
-    let max = undefined;
+    let max;
     let index = -1;
 
     if (!items) {
