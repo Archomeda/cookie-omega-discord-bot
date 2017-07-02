@@ -42,7 +42,7 @@ class HookCompetitiveRank extends DiscordHook {
             const oldStats = databaseStats[previousRegion];
             const newStats = liveStats.get(activeRegion);
 
-            if (oldStats && !deepEqual(oldStats, newStats)) {
+            if (oldStats && newStats && !deepEqual(oldStats, newStats)) {
                 await this.onNewStats(member, account, oldStats, newStats);
             }
         } else {

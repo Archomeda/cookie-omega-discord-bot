@@ -8,7 +8,7 @@
       "short-description": "Links your Battle.Net account",
       "long-description": "Links your Battle.Net account.",
       "param-account-name": "Your Battle.Net account name",
-      "param-platform": "Your Battle.Net platform id (pc, ps4 or xbox), defaults to pc if not given"
+      "param-platform": "Your Battle.Net platform id (pc, psn or xbl), defaults to pc if not given"
     },
     "response-error": "An error has occured: {{error}}.",
     "response-no-account-found": "No accounts have been found with the given information. Please check if your account name and platform are correct and try again.",
