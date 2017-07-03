@@ -23,11 +23,11 @@
     "response-error": "An error has occured: {{error}}",
     "response-no-account": "You have not linked your account yet.",
     "response-not-available": "Your Overwatch rank information is not yet available.",
-    "response": "Your Overwatch rating on account {{account_name}} is {{rank}} ({{ranking}})."
+    "response": "Your Overwatch rating on account {{account_name}} is {{ranking}}: {{rank}} ({{region}})."
   },
   "competitive-rank-checker": {
-    "new-rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}**.",
-    "new-rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}**.",
-    "new-ranking": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}**."
+    "new-rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
+    "new-rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
+    "new-ranking": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}** ({{region}})."
   }
 }

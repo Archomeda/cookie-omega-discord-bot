@@ -23,11 +23,11 @@
     "response-error": "Er is een fout opgetreden: {{error}}",
     "response-no-account": "Je hebt nog geen account gelinkt.",
     "response-not-available": "Jouw Overwatch-ranginformatie is not niet beschikbaar.",
-    "response": "Jouw Overwatch-rang op account {{account_name}} is {{rank}} ({{ranking}})."
+    "response": "Jouw Overwatch-rang op account {{account_name}} is {{ranking}}: {{rank}} ({{region}})."
   },
   "competitive-rank-checker": {
-    "new-rank-decrease": "{{user}}'s rang is *gezakt* met {{difference}} van {{oldRank}} naar **{{newRank}}**.",
-    "new-rank-increase": "{{user}}'s rang is *gestegen* met {{difference}} van {{oldRank}} naar **{{newRank}}**.",
-    "new-ranking": "{{user}}'s rangtitel is veranderd van {{oldRanking}} naar **{{newRanking}}**."
+    "new-rank-decrease": "{{user}}'s rang is *gezakt* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
+    "new-rank-increase": "{{user}}'s rang is *gestegen* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
+    "new-ranking": "{{user}}'s rangtitel is veranderd van {{oldRanking}} naar **{{newRanking}}** ({{region}})."
   }
 }

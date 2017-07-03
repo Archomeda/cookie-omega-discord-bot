@@ -43,7 +43,7 @@ class HookCompetitiveRank extends DiscordHook {
             const newStats = liveStats.get(activeRegion);
 
             if (oldStats && newStats && !deepEqual(oldStats, newStats)) {
-                await this.onNewStats(member, account, oldStats, newStats);
+                await this.onNewStats(member, account, oldStats, newStats, activeRegion);
             }
         } else {
             // Sadly we can't figure out the active region
@@ -127,14 +127,14 @@ class HookCompetitiveRank extends DiscordHook {
     }
 
 
-    async onNewStats(member, account, oldStats, newStats) {
+    async onNewStats(member, account, oldStats, newStats, region) {
         const bot = this.getBot();
         const config = this.getModule().getConfig().root(this.getId());
         const client = bot.getClient();
         const l = bot.getLocalizer();
 
-        this.log(`New stats for ${member.user.username} (${account.platform}, ${account.accountName})`);
-        this.emit('new-stats', { member, account, oldStats, newStats });
+        this.log(`New stats for ${member.user.username} (${account.platform} ${region}, ${account.accountName})`);
+        this.emit('new-stats', { member, account, oldStats, newStats, region });
 
         const channelId = config.get('channel-id');
         let channel;
@@ -146,14 +146,16 @@ class HookCompetitiveRank extends DiscordHook {
                     user: member.toString(),
                     oldRank: oldStats.rank,
                     newRank: newStats.rank,
-                    difference: Math.abs(difference)
+                    difference: Math.abs(difference),
+                    region
                 }));
             }
             if (oldStats.ranking !== newStats.ranking) {
                 // New competitive ranking
                 await channel.send(l.t('module.overwatch:competitive-rank-checker.new-ranking', {
                     oldRanking: oldStats.ranking,
-                    newRanking: newStats.ranking
+                    newRanking: newStats.ranking,
+                    region
                 }));
             }
         }
