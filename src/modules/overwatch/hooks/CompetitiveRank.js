@@ -147,7 +147,7 @@ class HookCompetitiveRank extends DiscordHook {
                     oldRank: oldStats.rank,
                     newRank: newStats.rank,
                     difference: Math.abs(difference),
-                    region
+                    region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
                 }));
             }
             if (oldStats.ranking !== newStats.ranking) {
@@ -155,7 +155,7 @@ class HookCompetitiveRank extends DiscordHook {
                 await channel.send(l.t('module.overwatch:competitive-rank-checker.new-ranking', {
                     oldRanking: oldStats.ranking,
                     newRanking: newStats.ranking,
-                    region
+                    region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
                 }));
             }
         }

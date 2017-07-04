@@ -26,6 +26,9 @@
     "response": "Your Overwatch rating on account {{account_name}} is {{ranking}}: {{rank}} ({{region}})."
   },
   "competitive-rank-checker": {
+    "region-us": "Americas",
+    "region-eu": "Europe",
+    "region-kr": "Asia",
     "new-rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
     "new-rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
     "new-ranking": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}** ({{region}})."
