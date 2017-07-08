@@ -10,8 +10,10 @@ const owApi = require('../api');
 
 
 const checkIntervals = {
-    active: 8 * 60 * 1000,
-    activeRandom: 4 * 60 * 1000,
+    active: 50 * 60 * 1000,
+    activeRandom: 20 * 60 * 1000,
+    finished: 4 * 60 * 1000,
+    finishedRandom: 2 * 60 * 1000,
     inactive: 50 * 60 * 1000,
     inactiveRandom: 20 * 60 * 1000
 };
@@ -66,9 +68,19 @@ class HookCompetitiveRank extends DiscordHook {
                 clearTimeout(this._timers.get(member.id));
             }
 
-            const timeout = active > 0 ?
-                    checkIntervals.active + (Math.random() * checkIntervals.activeRandom) :
-                    checkIntervals.inactive + (Math.random() * checkIntervals.inactiveRandom);
+            let timeout;
+            switch (active) {
+                case 1:
+                    timeout = checkIntervals.active + (Math.random() * checkIntervals.activeRandom);
+                    break;
+                case 2:
+                    timeout = checkIntervals.finished + (Math.random() * checkIntervals.finishedRandom);
+                    break;
+                case 0:
+                default:
+                    timeout = checkIntervals.inactive + (Math.random() * checkIntervals.inactiveRandom);
+                    break;
+            }
 
             this._timers.set(member.id, setTimeout(async (member, active, account) => {
                 this._timers.delete(member.id);
