@@ -17,6 +17,7 @@ const checkIntervals = {
     inactive: 50 * 60 * 1000,
     inactiveRandom: 20 * 60 * 1000
 };
+const gameName = 'Overwatch';
 
 
 class HookCompetitiveRank extends DiscordHook {
@@ -98,8 +99,14 @@ class HookCompetitiveRank extends DiscordHook {
     async _setAllGuildMemberTimers() {
         const client = this.getBot().getClient();
         const config = this.getConfig();
-        const channel = config.get('channel-id');
-        const members = client.channels.get(channel).guild.members;
+        const channel = client.channel.get(config.get('channel-id'));
+
+        if (!channel) {
+            // TODO: This might be because of an outage, need to investigate if there are guildAvailable events or something
+            this.log(`The defined channel is not available`, 'warn');
+            return;
+        }
+        const members = channel.guild.members;
 
         const accounts = await models.BattleNetAccount.find({ discordId: { $in: members.map(m => m.id) } });
         const mappedAccounts = new Map(accounts.map(a => [a.discordId, a]));
@@ -111,7 +118,7 @@ class HookCompetitiveRank extends DiscordHook {
             }
             const account = mappedAccounts.get(member.id);
             if (account) {
-                this._setTimer(member, member.presence.game && member.presence.game.name === 'Overwatch' ? 1 : 0, account);
+                this._setTimer(member, member.presence.game && member.presence.game.name === gameName ? 1 : 0, account);
             }
         }
     }
@@ -128,11 +135,11 @@ class HookCompetitiveRank extends DiscordHook {
         if ((!oldGame && newGame) || (oldGame && !newGame) || (oldGame && newGame && !oldGame.equals(newGame))) {
             // Only changes in the current playing game
             const account = await models.BattleNetAccount.findOne({ discordId: newMember.id });
-            if (newGame && newGame.name === 'Overwatch') {
-                this.log(`${newMember.user.username} is playing Overwatch`);
+            if (newGame && newGame.name === gameName) {
+                this.log(`${newMember.user.username} is playing ${gameName}`);
                 this._setTimer(newMember, 1, account);
             } else if (oldGame && oldGame.name === 'Overwatch') {
-                this.log(`${newMember.user.username} has stopped playing Overwatch`);
+                this.log(`${newMember.user.username} has stopped playing ${gameName}`);
                 this._setTimer(newMember, 2, account);
             }
         }
