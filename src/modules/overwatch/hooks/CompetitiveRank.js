@@ -172,6 +172,7 @@ class HookCompetitiveRank extends DiscordHook {
             if (oldStats.ranking !== newStats.ranking) {
                 // New competitive ranking
                 await channel.send(l.t('module.overwatch:competitive-rank-checker.new-ranking', {
+                    user: member.toString(),
                     oldRanking: oldStats.ranking,
                     newRanking: newStats.ranking,
                     region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
