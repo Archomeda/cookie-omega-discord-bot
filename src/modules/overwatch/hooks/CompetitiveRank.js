@@ -99,7 +99,7 @@ class HookCompetitiveRank extends DiscordHook {
     async _setAllGuildMemberTimers() {
         const client = this.getBot().getClient();
         const config = this.getConfig();
-        const channel = client.channel.get(config.get('channel-id'));
+        const channel = client.channels.get(config.get('channel-id'));
 
         if (!channel) {
             // TODO: This might be because of an outage, need to investigate if there are guildAvailable events or something
