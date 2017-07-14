@@ -3,7 +3,7 @@
 const deepEqual = require('deep-equal');
 const overwatch = require('overwatch-js');
 
-const { maxAllIndex } = require('../../utils/Max');
+const { maxAllIndex } = require('../../../bot/utils/Max');
 
 
 async function getAccountProfile(battleTag, platform) {

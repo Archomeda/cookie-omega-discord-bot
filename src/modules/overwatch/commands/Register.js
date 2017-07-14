@@ -5,32 +5,23 @@ const overwatch = require('overwatch-js');
 const AutoRemoveMessage = require('../../../../bot/middleware/AutoRemoveMessage');
 
 const DiscordCommand = require('../../../../bot/modules/DiscordCommand');
-const DiscordCommandParameter = require('../../../../bot/modules/DiscordCommandParameter');
 
 const models = require('../../../models');
 
 
 class CommandRegister extends DiscordCommand {
     constructor(bot) {
-        super(bot, 'register', ['register']);
+        super(bot, 'register', ['register :account-name :platform?']);
 
         this.setMiddleware(new AutoRemoveMessage(bot, this, { defaultRequest: 60, defaultResponse: 60 })); // Auto remove messages after 1 minute
     }
 
-    initializeParameters() {
-        return [
-            new DiscordCommandParameter('account-name'),
-            new DiscordCommandParameter('platform', { optional: true })
-        ];
-    }
-
-    async onCommand(request) {
+    async onCommand(message, parameters) {
         const bot = this.getBot();
         const l = bot.getLocalizer();
-        const params = request.getParams();
-        const battleTag = params['account-name'].replace('#', '-');
-        const platform = params.platform || 'pc';
-        const user = request.getMessage().author;
+        const battleTag = parameters['account-name'].replace('#', '-');
+        const platform = parameters.platform || 'pc';
+        const user = message.author;
         const discordId = user.id;
 
         let found = false;

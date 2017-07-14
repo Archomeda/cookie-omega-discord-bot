@@ -10,10 +10,10 @@ class CommandRank extends DiscordCommand {
         super(bot, 'rank', ['rank']);
     }
 
-    async onCommand(request) {
+    async onCommand(message) {
         const bot = this.getBot();
         const l = bot.getLocalizer();
-        const discordId = request.getMessage().author.id;
+        const discordId = message.author.id;
 
         try {
             const account = await models.BattleNetAccount.findOne({ discordId });
