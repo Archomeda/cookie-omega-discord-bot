@@ -30,7 +30,7 @@ class CommandRank extends DiscordCommand {
                 account_name: account.accountName, // eslint-disable-line camelcase
                 rank: regionStats.rank,
                 ranking: regionStats.ranking,
-                region: stats.activeRegion
+                region: l.t(`module.overwatch:competitive-rank-checker.region-${stats.activeRegion}`)
             });
         } catch (err) {
             return l.t('module.overwatch:rank.response-error', { error: err.message });
