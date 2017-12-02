@@ -23,16 +23,13 @@
     "response-error": "An error has occured: {{error}}",
     "response-no-account": "You have not linked your account yet.",
     "response-not-available": "Your Overwatch rank information is not yet available.",
-    "response": "Your Overwatch rating on account {{account_name}} is {{ranking}}: {{rank}} ({{region}})."
+    "response": "Your Overwatch rating on account {{account_name}} is {{ranking}} with {{rank}} SR."
   },
   "competitive-rank-checker": {
-    "region-us": "Americas",
-    "region-eu": "Europe",
-    "region-kr": "Asia",
-    "new-rank": "{{user}} has a new rating: **{{newRank}}** ({{region}}).",
-    "rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
-    "rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
-    "new-ranking": "{{user}} has a new rank: **{{newRanking}}** ({{region}}).",
-    "ranking-change": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}** ({{region}})."
+    "new-rank": "{{user}} has a new rating: **{{newRank}} SR**.",
+    "rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} SR to **{{newRank}} SR**.",
+    "rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} SR to **{{newRank}} SR**.",
+    "new-ranking": "{{user}} has a new rank: **{{newRanking}}**.",
+    "ranking-change": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}**."
   }
 }

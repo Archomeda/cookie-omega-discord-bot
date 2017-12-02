@@ -24,13 +24,11 @@ class CommandRank extends DiscordCommand {
             if (!stats) {
                 return l.t('module.overwatch:rank.response-not-available');
             }
-            const regionStats = stats[stats.activeRegion];
 
             return l.t('module.overwatch:rank.response', {
                 account_name: account.accountName, // eslint-disable-line camelcase
-                rank: regionStats.rank,
-                ranking: regionStats.ranking,
-                region: l.t(`module.overwatch:competitive-rank-checker.region-${stats.activeRegion}`)
+                rank: stats.stats.rank,
+                ranking: stats.stats.ranking
             });
         } catch (err) {
             return l.t('module.overwatch:rank.response-error', { error: err.message });

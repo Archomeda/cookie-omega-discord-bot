@@ -39,24 +39,12 @@ class HookCompetitiveRank extends DiscordHook {
             databaseStats = new models.OverwatchStats({ accountName: account.accountName, platform: account.platform });
         }
 
-        const activeRegion = owApi.getActiveRegion(databaseStats, liveStats);
-        if (activeRegion) {
-            const previousRegion = databaseStats.activeRegion;
-            const oldStats = databaseStats[previousRegion];
-            const newStats = liveStats.get(activeRegion);
-
-            if (oldStats && newStats && !deepEqual(oldStats, newStats)) {
-                await this.onNewStats(member, account, oldStats, newStats, activeRegion);
-            }
-        } else {
-            // Sadly we can't figure out the active region
-            this.log(`Active region unknown for ${member.user.username} (${account.platform}, ${account.accountName})`);
+        const oldStats = databaseStats.stats;
+        if (oldStats && liveStats && !deepEqual(oldStats, liveStats)) {
+            await this.onNewStats(member, account, oldStats, liveStats);
         }
 
-        databaseStats.activeRegion = activeRegion;
-        for (const region of ['eu', 'us', 'kr']) {
-            databaseStats[region] = liveStats.get(region);
-        }
+        databaseStats.stats = liveStats;
         databaseStats.updated = new Date();
         return databaseStats.save();
     }
@@ -146,14 +134,14 @@ class HookCompetitiveRank extends DiscordHook {
     }
 
 
-    async onNewStats(member, account, oldStats, newStats, region) {
+    async onNewStats(member, account, oldStats, newStats) {
         const bot = this.getBot();
         const config = this.getModule().getConfig().root(this.getId());
         const client = bot.getClient();
         const l = bot.getLocalizer();
 
-        this.log(`New stats for ${member.user.username} (${account.platform} ${region}, ${account.accountName})`);
-        this.emit('new-stats', { member, account, oldStats, newStats, region });
+        this.log(`New stats for ${member.user.username} (${account.platform}, ${account.accountName})`);
+        this.emit('new-stats', { member, account, oldStats, newStats });
 
         const channelId = config.get('channel-id');
         let channel;
@@ -168,8 +156,7 @@ class HookCompetitiveRank extends DiscordHook {
                     user: member.toString(),
                     oldRank: oldStats.rank,
                     newRank: newStats.rank,
-                    difference: Math.abs(difference),
-                    region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
+                    difference: Math.abs(difference)
                 }));
             }
             if (oldStats.ranking !== newStats.ranking && newStats.ranking) {
@@ -177,8 +164,7 @@ class HookCompetitiveRank extends DiscordHook {
                 await channel.send(l.t(`module.overwatch:competitive-rank-checker.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, {
                     user: member.toString(),
                     oldRanking: oldStats.ranking,
-                    newRanking: newStats.ranking,
-                    region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
+                    newRanking: newStats.ranking
                 }));
             }
         }
