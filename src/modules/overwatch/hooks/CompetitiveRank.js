@@ -158,10 +158,13 @@ class HookCompetitiveRank extends DiscordHook {
         const channelId = config.get('channel-id');
         let channel;
         if (channelId && (channel = client.channels.get(channelId)) && channel.type === 'text') {
-            if (oldStats.rank !== newStats.rank) {
+            if (oldStats.rank !== newStats.rank && newStats.rank) {
                 // New competitive rating
                 const difference = newStats.rank - oldStats.rank;
-                await channel.send(l.t(`module.overwatch:competitive-rank-checker.new-rank-${difference < 0 ? 'de' : 'in'}crease`, {
+                const localeKey = oldStats.rank ?
+                    `module.overwatch:competitive-rank-checker.rank-${difference < 0 ? 'de' : 'in'}crease` :
+                    'module.overwatch:competitive-rank-checker.new-rank';
+                await channel.send(l.t(localeKey, {
                     user: member.toString(),
                     oldRank: oldStats.rank,
                     newRank: newStats.rank,
@@ -169,9 +172,9 @@ class HookCompetitiveRank extends DiscordHook {
                     region: l.t(`module.overwatch:competitive-rank-checker.region-${region}`)
                 }));
             }
-            if (oldStats.ranking !== newStats.ranking) {
+            if (oldStats.ranking !== newStats.ranking && newStats.ranking) {
                 // New competitive ranking
-                await channel.send(l.t('module.overwatch:competitive-rank-checker.new-ranking', {
+                await channel.send(l.t(`module.overwatch:competitive-rank-checker.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, {
                     user: member.toString(),
                     oldRanking: oldStats.ranking,
                     newRanking: newStats.ranking,

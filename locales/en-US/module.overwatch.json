@@ -29,8 +29,10 @@
     "region-us": "Americas",
     "region-eu": "Europe",
     "region-kr": "Asia",
-    "new-rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
-    "new-rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
-    "new-ranking": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}** ({{region}})."
+    "new-rank": "{{user}} has a new rating: **{{newRank}}** ({{region}}).",
+    "rank-decrease": "{{user}}'s rating has *decreased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
+    "rank-increase": "{{user}}'s rating has *increased* with {{difference}} from {{oldRank}} to **{{newRank}}** ({{region}}).",
+    "new-ranking": "{{user}} has a new rank: **{{newRanking}}** ({{region}}).",
+    "ranking-change": "{{user}}'s rank has changed from {{oldRanking}} to **{{newRanking}}** ({{region}})."
   }
 }

@@ -29,8 +29,10 @@
     "region-us": "Amerika",
     "region-eu": "Europa",
     "region-kr": "Asië",
-    "new-rank-decrease": "{{user}}'s rang is *gezakt* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
-    "new-rank-increase": "{{user}}'s rang is *gestegen* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
-    "new-ranking": "{{user}}'s rangtitel is veranderd van {{oldRanking}} naar **{{newRanking}}** ({{region}})."
+    "new-rank": "{{user}} has a new rating: **{{newRank}}** ({{region}}).",
+    "rank-decrease": "{{user}}'s rang is *gezakt* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
+    "rank-increase": "{{user}}'s rang is *gestegen* met {{difference}} van {{oldRank}} naar **{{newRank}}** ({{region}}).",
+    "new-ranking": "{{user}} has a new rank: **{{newRanking}}** ({{region}}).",
+    "ranking-change": "{{user}}'s rangtitel is veranderd van {{oldRanking}} naar **{{newRanking}}** ({{region}})."
   }
 }
