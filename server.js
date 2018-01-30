@@ -118,7 +118,7 @@ process.on('SIGINT', stop);
                     return value;
                 },
                 escape: s => s
-            },
+            }
         }));
         await client.setSettingsProvider(new commando.YAMLSettingsProvider(path.join(__dirname, path.join('config', 'servers')))).catch(console.error);
         for (let i = 0; i < 10; i++) {
