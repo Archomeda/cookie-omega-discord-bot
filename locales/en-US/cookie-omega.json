@@ -1,0 +1,18 @@
+{
+  "info": {
+    "description": "Shows general information about me",
+    "details": "Shows general information about me, including memory usage, uptime, etc.",
+    "embed": {
+      "description": "Hello! I'm Cookie Omega's Discord bot. I perform various basic stuff on this Discord server.",
+      "memory-usage": "Memory usage",
+      "memory-usage-value": "{{memory, filesize}}",
+      "source-code": "Source code",
+      "source-code-value": "[GitHub]({{source}})",
+      "title": "{{name}} bot information",
+      "version": "Node version",
+      "version-value": "{{version}}",
+      "uptime": "Uptime",
+      "uptime-value": "{{uptime, duration}}"
+    }
+  }
+}

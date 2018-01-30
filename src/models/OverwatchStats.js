@@ -1,7 +1,4 @@
-'use strict';
-
 const Schema = require('mongoose').Schema;
-
 
 const BattleNetAccount = new Schema({
     accountName: String,

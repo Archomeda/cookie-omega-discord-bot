@@ -1,0 +1,51 @@
+{
+  "register": {
+    "description": "Registers your Battle.Net account",
+    "details": "Registration happens with your Battle.Net tag and (optionally) your platform (pc, psn or xbl).",
+    "args": {
+      "battletag-prompt": "[W|w]hat is your Battle.Net tag?",
+      "platform-prompt": "[W|w]hat is your platform (pc, psn, xbl)?"
+    },
+    "output": {
+      "no-account-found": "[N|n]o account has been found with the given information. Please check if your Battle.Net tag and platform are correct and try again.",
+      "registered": "[Y|y]our account has successfully been registered."
+    }
+  },
+  "rank-channel": {
+    "description": "Sets the target channel for the rank update messages",
+    "details": "Use `none` or a channel. If the channel is not specified, it will show the current target channel. If `none` is specified, the rank update messages will not be posted.",
+    "args": {
+      "channel-prompt": "[W|w]hich target channel would you like to use?"
+    },
+    "output": {
+      "channel": "[T|t]he channel is currently set to {{channel}}.",
+      "disabled": "[T|t]he channel has been removed and rank updating has been disabled for this server.",
+      "no-channel": "[N|n]o channel is currently configured.",
+      "no-permissions": "I need the permission 'Read Messages' for this channel.",
+      "set-channel": "[T|t]he channel has been set to {{channel}}."
+    }
+  },
+  "rank-poster": {
+    "embed": {
+      "new-rank": "New competitive skill rating: **{{newRank}} SR**.",
+      "rank-decrease": "Competitive skill rating has been decreased with {{difference}} from {{oldRank}} SR to **{{newRank}} SR**.",
+      "rank-increase": "Competitive skill rating has been increased with {{difference}} from {{oldRank}} SR to **{{newRank}} SR**.",
+      "new-ranking": "New competitive rank: **{{newRanking}}**.",
+      "ranking-change": "Competitive rank has been changed from {{oldRanking}} to **{{newRanking}}**.",
+      "title": "{{accountName}} ({{platform}})"
+    }
+  },
+  "overwatch": {
+    "description": "Shows your Overwatch details",
+    "details": "The details are checked once in a while and might not be up-to-date.",
+    "embed": {
+      "level": "Level {{level}}.",
+      "not-available": "Information is not yet available.",
+      "rank": "Competitive: {{rank}} SR - {{ranking}}.",
+      "title": "{{accountName}} ({{platform}})"
+    },
+    "output": {
+      "no-account": "[Y|y]ou haven't registered your account yet."
+    }
+  }
+}

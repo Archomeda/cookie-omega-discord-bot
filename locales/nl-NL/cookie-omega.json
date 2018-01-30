@@ -1,0 +1,18 @@
+{
+  "info": {
+    "description": "Toont algemene informatie over mij",
+    "details": "Toont algemene informatie over mij, inclusief geheugengebruik, uptime, enz.",
+    "embed": {
+      "description": "Hallo! Ik ben de Discord bot voor Cookie Omega. Ik doe verschillende basisdingen op deze Discord server.",
+      "memory-usage": "Geheugengebruik",
+      "memory-usage-value": "{{memory, filesize}}",
+      "source-code": "Broncode",
+      "source-code-value": "[GitHub]({{source}})",
+      "title": "{{name}} bot-informatie",
+      "version": "Node-versie",
+      "version-value": "{{version}}",
+      "uptime": "Uptime",
+      "uptime-value": "{{uptime, duration}}"
+    }
+  }
+}

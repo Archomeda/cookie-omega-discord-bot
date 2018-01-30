@@ -1,8 +1,12 @@
 ###
 ### Project files
 ###
-config/local*
+config
 storage/*/*
+
+.docker
+.travis.yml
+install.sh
 
 # Ignore tests
 test/

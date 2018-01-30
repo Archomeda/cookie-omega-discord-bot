@@ -1,0 +1,51 @@
+{
+  "register": {
+    "description": "Registreert jouw Battle.Net account",
+    "details": "Registratie gebeurt met jouw Battle.Net tag en (optioneel) jouw platform (pc, psn of xbl).",
+    "args": {
+      "battletag-prompt": "[W|w]at is jouw Battle.Net tag?",
+      "platform-prompt": "[W|w]at is jouw platform (pc, psn, xbl)?"
+    },
+    "output": {
+      "no-account-found": "[E|e]r zijn geen accounts gevonden met de gegeven informatie. Controleer of jouw accountnaam en platform correct zijn en probeer opnieuw.",
+      "registered": "[J|j]ouw account is geregistreerd."
+    }
+  },
+  "rank-channel": {
+    "description": "Stelt het doelkanaal in voor de rang-update-berichten",
+    "details": "Gebruik `none` of een kanaal. Als er geen kanaal is opgegeven, wordt het huidige kanaal getoond. Als `none` is opgegeven, worden de rang-update-berichten uitgeschakeld.",
+    "args": {
+      "channel-prompt": "[W|w]elk doelkanaal wil je gebruiken?"
+    },
+    "output": {
+      "channel": "[H|h]et kanaal is ingesteld op {{channel}}.",
+      "disabled": "[H|h]et kanaal is verwijderd en het updaten is uitgeschakeld voor deze server.",
+      "no-channel": "[E|e]r is geen kanaal ingesteld.",
+      "no-permissions": "Ik heb het recht 'Berichten lezen' nodig voor dit kanaal.",
+      "set-channel": "[H|h]et kanaal is ingesteld op {{channel}}."
+    }
+  },
+  "rank-poster": {
+    "embed": {
+      "new-rank": "Nieuwe competitieve skill rating: **{{newRank}} SR**.",
+      "rank-decrease": "Competitieve skill rating is gezakt met {{difference}} van {{oldRank}} SR naar **{{newRank}} SR**.",
+      "rank-increase": "Competitieve skill rating is gestegen met {{difference}} van {{oldRank}} SR naar **{{newRank}} SR**.",
+      "new-ranking": "Nieuwe competitieve rang: **{{newRanking}}**.",
+      "ranking-change": "Competitieve rang is veranderd van {{oldRanking}} naar **{{newRanking}}**.",
+      "title": "{{accountName}} ({{platform}})"
+    }
+  },
+  "overwatch": {
+    "description": "Toont jouw Overwatch-details",
+    "details": "De details worden eens in de zoveel tijd bijgewerkt. De gegevens kunnen mogelijk daardoor niet up-to-date zijn.",
+    "embed": {
+      "level": "Level {{level}}.",
+      "not-available": "Informatie is nog niet beschikbaar.",
+      "rank": "Competitief: {{rank}} SR - {{ranking}}.",
+      "title": "{{accountName}} ({{platform}})"
+    },
+    "output": {
+      "no-account": "[J|j]e hebt nog geen account geregistreerd."
+    }
+  }
+}
