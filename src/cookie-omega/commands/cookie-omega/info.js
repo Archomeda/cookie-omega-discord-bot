@@ -18,8 +18,8 @@ class CommandInfo extends Command {
             .setThumbnail(this.client.user.avatarURL)
             .addField(
                 this.localization.tl('embed.memory-usage', msg.guild),
-                this.localization.tl('embed.memory-usage-value', msg.guild, { memory: process.memoryUsage().rss },
-                true)
+                this.localization.tl('embed.memory-usage-value', msg.guild, { memory: process.memoryUsage().rss }),
+                true
             ).addField(
                 this.localization.tl('embed.version', msg.guild),
                 this.localization.tl('embed.version-value', msg.guild, { version: process.version }),
