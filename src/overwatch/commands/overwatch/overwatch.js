@@ -23,7 +23,7 @@ class CommandOverwatch extends Command {
 
         const embed = new RichEmbed()
             .setColor([247, 159, 17])
-            .setURL(`https://playoverwatch.com/en-US/career/${account.platform}/${account.accountName.replace('#', '-')}`)
+            .setURL(`https://playoverwatch.com/en-US/career/${account.platform}/${account.accountName.replace('-', '#')}`)
             .setTitle(this.localization.tl('embed.title', msg.guild, { accountName: account.accountName, platform: account.platform }));
 
         const stats = await OverwatchStatsModel.findOne({ accountName: account.accountName, platform: account.platform });
