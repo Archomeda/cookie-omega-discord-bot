@@ -35,7 +35,7 @@ class WorkerRankChecker extends Worker {
             const embed = new RichEmbed()
                 .setColor([247, 159, 17])
                 .setURL(`https://playoverwatch.com/en-US/career/${account.platform}/${account.accountName.replace('-', '#')}`)
-                .setTitle(this.localization.tl('embed.title', c.guild, { accountName: account.accountName, platform: account.platform }))
+                .setTitle(this.localization.tl('embed.title', c.guild, { accountName: account.accountName.replace('-', '#'), platform: account.platform }))
                 .setThumbnail(newStats.avatar);
 
             const messages = [];
