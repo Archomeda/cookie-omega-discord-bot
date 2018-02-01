@@ -104,11 +104,11 @@ process.on('SIGINT', stop);
     try {
         await client.setLocaleProvider(new commando.I18nextLocaleProvider(i18next, undefined, {
             interpolation: {
-                format: (value, format) => {
+                format: (value, format, lng) => {
                     if (value) {
                         switch (format) {
                             case 'duration':
-                                return moment.duration(value).humanize();
+                                return moment.duration(value).locale(lng).humanize();
                             case 'filesize':
                                 return filesize(value);
                             default:
