@@ -5,17 +5,16 @@ class WorkerRankChecker extends Worker {
     constructor(client) {
         super(client, {
             id: 'rank-poster',
-            module: 'overwatch',
-            timer: 60 * 60 * 1000
+            module: 'overwatch'
         });
     }
 
-    start() {
+    run() {
         this._onNewStats = this.onNewStats.bind(this);
         this.client.on('overwatchStats', this._onNewStats);
     }
 
-    stop() {
+    onStop() {
         this.client.removeListener('overwatchStats', this._onNewStats);
     }
 

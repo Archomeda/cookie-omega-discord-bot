@@ -27,10 +27,9 @@ class WorkerRankChecker extends Worker {
         }
     }
 
-    stop() {
+    onStop() {
         this.checkStatsTimers.forEach(t => clearTimeout(t));
         this.checkStatsTimers.clear();
-        return super.stop();
     }
 
     async onPresenceUpdate(oldMember, newMember) {

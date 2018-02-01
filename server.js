@@ -140,10 +140,9 @@ process.on('SIGINT', stop);
         client.storageProvider.registerModel('BattleNetAccount', models.BattleNetAccountSchema);
         client.storageProvider.registerModel('OverwatchStats', models.OverwatchStatsSchema);
 
-        client.registry
-            .registerDefaults()
-            .registerModule(new (require('./src/cookie-omega/module'))(client))
-            .registerModule(new (require('./src/overwatch/module'))(client));
+        client.registry.registerDefaults();
+        await client.registry.registerModule(new (require('./src/cookie-omega/module'))(client));
+        await client.registry.registerModule(new (require('./src/overwatch/module'))(client));
 
         await client.login(config.token);
     } catch (err) {
