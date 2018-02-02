@@ -7,10 +7,11 @@ class WorkerRankChecker extends Worker {
             id: 'rank-poster',
             module: 'overwatch'
         });
+
+        this._onNewStats = this.onNewStats.bind(this);
     }
 
     run() {
-        this._onNewStats = this.onNewStats.bind(this);
         this.client.on('overwatchStats', this._onNewStats);
     }
 

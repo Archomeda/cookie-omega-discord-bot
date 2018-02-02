@@ -10,7 +10,7 @@ class WorkerRankChecker extends Worker {
         super(client, {
             id: 'rank-checker',
             module: 'overwatch',
-            timer: 60 * 60 * 1000
+            schedule: 60 * 60 * 1000
         });
 
         client.on('presenceUpdate', this.onPresenceUpdate.bind(this));
