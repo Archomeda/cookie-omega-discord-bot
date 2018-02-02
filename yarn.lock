@@ -477,7 +477,7 @@ detect-indent@^5.0.0:
 
 discord.js-commando-plus@archomeda/discord.js-commando-plus:
   version "11.3.0"
-  resolved "https://codeload.github.com/archomeda/discord.js-commando-plus/tar.gz/0270d4c21fd449e9f51e2795673edbd52149c42b"
+  resolved "https://codeload.github.com/archomeda/discord.js-commando-plus/tar.gz/9f6f7c7af4569e1e9b16541366c0d0f0827eef1d"
   dependencies:
     common-tags "^1.0.0"
     deepmerge "^2.0.1"
