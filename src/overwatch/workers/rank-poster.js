@@ -42,7 +42,7 @@ class WorkerRankChecker extends Worker {
             if (oldStats.rank !== newStats.rank && newStats.rank) {
                 // New competitive rating
                 const difference = newStats.rank - oldStats.rank;
-                const localeKey = oldStats.rank ? `output.rank-${difference < 0 ? 'de' : 'in'}crease` : 'output.new-rank';
+                const localeKey = oldStats.rank ? `embed.rank-${difference < 0 ? 'de' : 'in'}crease` : 'embed.new-rank';
                 messages.push(this.localization.tl(localeKey, c.guild, {
                     oldRank: oldStats.rank,
                     newRank: newStats.rank,
@@ -51,7 +51,7 @@ class WorkerRankChecker extends Worker {
             }
             if (oldStats.ranking !== newStats.ranking && newStats.ranking) {
                 // New competitive ranking
-                messages.push(this.localization.tl(`output.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, c.guild, {
+                messages.push(this.localization.tl(`embed.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, c.guild, {
                     oldRanking: oldStats.ranking,
                     newRanking: newStats.ranking
                 }));
