@@ -25,8 +25,8 @@ class WorkerRankChecker extends Worker {
         await Promise.all(this.client.guilds.map(g => this.isEnabledIn(g) && g.available && g.fetchMember(user)));
         const channels = this.client.guilds
             .filterArray(g => g.available && g.members.has(user.id))
-            .map(g => this.isEnabledIn(g) && g.settings.get('rank-poster-channel') && g.channels.get(g.settings.get('rank-poster-channel')))
-            .filter(g => g.channel && g.channel.type === 'text');
+            .map(g => this.isEnabledIn(g) && g.settings.has('rank-poster-channel') && g.channels.get(g.settings.get('rank-poster-channel')))
+            .filter(c => c && c.type === 'text');
         if (channels.length === 0) {
             return;
         }
