@@ -2,7 +2,7 @@ const deepEqual = require('deep-equal');
 const { Worker } = require('discord.js-commando-plus');
 const owApi = require('../api');
 
-const randStopped = () => Math.round((30 * Math.random()) + 45);
+const randStopped = () => Math.round((60 * Math.random()) + 90);
 const randIdle = () => Math.round((60 * 60 * Math.random()) + (2 * 60 * 60));
 
 class WorkerRankChecker extends Worker {
