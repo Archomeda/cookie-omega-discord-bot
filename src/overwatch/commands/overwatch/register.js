@@ -29,10 +29,7 @@ class CommandRegister extends Command {
         const BattleNetAccountModel = this.client.storageProvider.model('BattleNetAccount');
 
         const accounts = await overwatch.search(battletag);
-        const found = accounts.some(a => {
-            const s = a.careerLink.split('/');
-            return s.length > 2 && s[2] === platform;
-        });
+        const found = accounts.some(a => a.platform === platform);
 
         if (!found) {
             return msg.reply(this.localization.tl('output.no-account-found', msg.guild));
