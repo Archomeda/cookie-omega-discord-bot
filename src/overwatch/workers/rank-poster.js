@@ -36,26 +36,26 @@ class WorkerRankChecker extends Worker {
                 .setColor([247, 159, 17])
                 .setURL(`https://playoverwatch.com/en-US/career/${account.platform}/${account.accountName.replace('#', '-')}`)
                 .setTitle(this.localization.tl('embed.title', c.guild, { accountName: account.accountName.replace('-', '#'), platform: account.platform }))
-                .setThumbnail(newStats.avatar);
+                .setThumbnail(newStats.portrait);
 
             const messages = [];
-            if (oldStats.rank !== newStats.rank && newStats.rank) {
+            if (oldStats.competitive && newStats.competitive && oldStats.competitive.rank !== newStats.competitive.rank && newStats.competitive.rank) {
                 // New competitive rating
-                const difference = newStats.rank - oldStats.rank;
-                const localeKey = oldStats.rank ? `embed.rank-${difference < 0 ? 'de' : 'in'}crease` : 'embed.new-rank';
+                const difference = newStats.competitive.rank - oldStats.competitive.rank;
+                const localeKey = oldStats.competitive.rank ? `embed.rank-${difference < 0 ? 'de' : 'in'}crease` : 'embed.new-rank';
                 messages.push(this.localization.tl(localeKey, c.guild, {
-                    oldRank: oldStats.rank,
-                    newRank: newStats.rank,
+                    oldRank: oldStats.competitive.rank,
+                    newRank: newStats.competitive.rank,
                     difference: Math.abs(difference)
                 }));
             }
-            if (oldStats.ranking !== newStats.ranking && newStats.ranking) {
-                // New competitive ranking
-                messages.push(this.localization.tl(`embed.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, c.guild, {
-                    oldRanking: oldStats.ranking,
-                    newRanking: newStats.ranking
-                }));
-            }
+            // if (oldStats.ranking !== newStats.ranking && newStats.ranking) {
+            //     // New competitive ranking
+            //     messages.push(this.localization.tl(`embed.${oldStats.ranking ? 'ranking-change' : 'new-ranking'}`, c.guild, {
+            //         oldRanking: oldStats.ranking,
+            //         newRanking: newStats.ranking
+            //     }));
+            // }
             if (messages.length === 0) {
                 return undefined;
             }

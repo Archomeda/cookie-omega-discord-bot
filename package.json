@@ -28,7 +28,7 @@
     "moment-timezone": "^0.5.14",
     "mongoose": "^5.0.2",
     "mongoose-sequence": "^4.0.1",
-    "overwatch-js": "^1.7.0"
+    "overwatch-api": "^0.7.0"
   },
   "devDependencies": {
     "xo": "^0.18.2"

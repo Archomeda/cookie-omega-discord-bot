@@ -41,7 +41,7 @@
     "embed": {
       "level": "Level {{level}}.",
       "not-available": "Informatie is nog niet beschikbaar.",
-      "rank": "Competitief: {{rank}} SR - {{ranking}}.",
+      "rank": "Competitief: {{rank}} SR.",
       "title": "{{accountName}} ({{platform}})"
     },
     "output": {

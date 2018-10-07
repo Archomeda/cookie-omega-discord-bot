@@ -28,13 +28,10 @@ class CommandOverwatch extends Command {
 
         const stats = await OverwatchStatsModel.findOne({ accountName: account.accountName, platform: account.platform });
         if (stats) {
-            const description = this.localization.tl('embed.level', msg.guild, {
-                level: (stats.stats.tier * 100) + stats.stats.level
-            }) + '\n' + this.localization.tl('embed.rank', msg.guild, {
-                rank: stats.stats.rank,
-                ranking: stats.stats.ranking
+            const description = this.localization.tl('embed.rank', msg.guild, {
+                rank: stats.stats.competitive.rank
             });
-            embed.setThumbnail(stats.stats.avatar).setDescription(description);
+            embed.setThumbnail(stats.stats.portrait).setDescription(description);
         } else {
             embed.setDescription(this.localization.tl('embed.not-available', msg.guild));
         }

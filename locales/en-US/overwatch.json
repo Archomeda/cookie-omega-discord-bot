@@ -41,7 +41,7 @@
     "embed": {
       "level": "Level {{level}}.",
       "not-available": "Information is not yet available.",
-      "rank": "Competitive: {{rank}} SR - {{ranking}}.",
+      "rank": "Competitive: {{rank}} SR.",
       "title": "{{accountName}} ({{platform}})"
     },
     "output": {

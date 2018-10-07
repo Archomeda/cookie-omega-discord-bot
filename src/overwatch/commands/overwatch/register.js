@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando-plus');
-const overwatch = require('overwatch-js');
+const owApi = require('../../api');
 
 class CommandRegister extends Command {
     constructor(client) {
@@ -28,10 +28,9 @@ class CommandRegister extends Command {
         const { battletag, platform } = args;
         const BattleNetAccountModel = this.client.storageProvider.model('BattleNetAccount');
 
-        const accounts = await overwatch.search(battletag);
-        const found = accounts.some(a => a.platform === platform);
+        const owAccount = await owApi.getAccountProfile(battletag, platform);
 
-        if (!found) {
+        if (!owAccount || !owAccount.username) {
             return msg.reply(this.localization.tl('output.no-account-found', msg.guild));
         }
 
