@@ -12,15 +12,15 @@ class WorkerRankChecker extends Worker {
     }
 
     run() {
-        this.client.on('overwatchStats', this._onNewStats);
+        this.client.on('overwatchStatsCompetitive', this._onNewStats);
     }
 
     onStop() {
-        this.client.removeListener('overwatchStats', this._onNewStats);
+        this.client.removeListener('overwatchStatsCompetitive', this._onNewStats);
     }
 
     async onNewStats(user, account, oldStats, newStats) {
-        this.client.emit('debug', `New Overwatch stats for ${user.tag} (${account.platform}, ${account.accountName})`);
+        this.client.emit('debug', `New Overwatch competitive stats for ${user.tag} (${account.platform}, ${account.accountName})`);
 
         await Promise.all(this.client.guilds.map(g => this.isEnabledIn(g) && g.available && g.fetchMember(user)));
         const channels = this.client.guilds
@@ -39,13 +39,13 @@ class WorkerRankChecker extends Worker {
                 .setThumbnail(newStats.portrait);
 
             const messages = [];
-            if (oldStats.competitive && newStats.competitive && oldStats.competitive.rank !== newStats.competitive.rank && newStats.competitive.rank) {
+            if (oldStats.rank !== newStats.rank && newStats.rank) {
                 // New competitive rating
-                const difference = newStats.competitive.rank - oldStats.competitive.rank;
-                const localeKey = oldStats.competitive.rank ? `embed.rank-${difference < 0 ? 'de' : 'in'}crease` : 'embed.new-rank';
+                const difference = newStats.rank - oldStats.rank;
+                const localeKey = oldStats.rank ? `embed.rank-${difference < 0 ? 'de' : 'in'}crease` : 'embed.new-rank';
                 messages.push(this.localization.tl(localeKey, c.guild, {
-                    oldRank: oldStats.competitive.rank,
-                    newRank: newStats.competitive.rank,
+                    oldRank: oldStats.rank,
+                    newRank: newStats.rank,
                     difference: Math.abs(difference)
                 }));
             }

@@ -86,15 +86,15 @@ class WorkerRankChecker extends Worker {
             try {
                 let [databaseStats, liveStats] = await Promise.all([
                     OverwatchStatsModel.findOne({ accountName: account.accountName, platform: account.platform }),
-                    owApi.getAccountProfile(account.accountName, account.platform)
+                    owApi.getAccountStatsCompetitive(account.accountName, account.platform)
                 ]);
                 if (!databaseStats) {
                     databaseStats = new OverwatchStatsModel({ accountName: account.accountName, platform: account.platform });
                 }
 
-                const oldStats = databaseStats.stats;
+                const oldStats = databaseStats.competitive;
                 if (oldStats && liveStats && !deepEqual(oldStats, liveStats)) {
-                    this.client.emit('overwatchStats', user, account, oldStats, liveStats);
+                    this.client.emit('overwatchStatsCompetitive', user, account, oldStats, liveStats);
                 }
 
                 databaseStats.stats = liveStats;

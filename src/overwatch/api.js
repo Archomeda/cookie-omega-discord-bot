@@ -9,6 +9,12 @@ async function getAccountProfile(battleTag, platform) {
     return await owGetProfileAsync(platform, 'us', battleTag);
 }
 
+async function getAccountStatsCompetitive(battleTag, platform) {
+    const stats = await getAccountProfile(battleTag, platform);
+    return stats.competitive;
+}
+
 module.exports = {
-    getAccountProfile
+    getAccountProfile,
+    getAccountStatsCompetitive
 };
