@@ -23,7 +23,7 @@
     "discord.js-commando-plus": "archomeda/discord.js-commando-plus",
     "filesize": "^3.5.11",
     "i18next": "^10.2.2",
-    "js-yaml": "^3.10.0",
+    "js-yaml": "^3.13.1",
     "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "mongoose": "^5.0.2",
